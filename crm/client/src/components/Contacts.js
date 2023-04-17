@@ -9,6 +9,7 @@ export default function Contacts() {
         fetch('http://localhost:8080/api/contacts') // fetching from server
             .then(response => response.json()) //response from server as json data
             .then(data => {
+                console.log(data)
                 setContacts(data) // update the usestate with data
             })
 

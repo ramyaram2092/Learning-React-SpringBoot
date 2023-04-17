@@ -8,23 +8,27 @@ export default function AddContact() {
     function handleFirstName(event)
     {
         setFirstName(event.target.value);
+        console.log(firstName);
     }
     function handleLastName(event)
     {
         setLastName(event.target.value);
+        console.log(lastName);
+
     }
     function handleEmail(event)
     {
         setEmail(event.target.value);
+        console.log(email);
     }
     function submitContact(event)
     {
         event.preventDefault();
-
-        let contact={
-            firstName:{firstName},
-            lastName:{lastName},
-            email:{email}
+        console.log("firstName:"+firstName)
+        let c={
+            firstName:firstName,
+            lastName:lastName,
+            email:email
         }
 
         fetch("http://localhost:8080/api/contacts",{
@@ -32,7 +36,7 @@ export default function AddContact() {
             headers:{
                 "content-type":"application/json",
             },
-            body: JSON.stringify(contact)
+            body: JSON.stringify(c)
         })
         .then(response=>response.json());
     }
